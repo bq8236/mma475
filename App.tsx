@@ -5,6 +5,7 @@ import ServiceOverview from './components/ServiceOverview';
 import Library from './components/Library';
 import Checklist from './components/Checklist';
 import InvestigationCriteria from './components/InvestigationCriteria';
+import ServiceGuide from './components/ServiceGuide';
 import { AppTab } from './types';
 
 const App: React.FC = () => {
@@ -14,6 +15,8 @@ const App: React.FC = () => {
     switch (activeTab) {
       case AppTab.SERVICE:
         return <ServiceOverview onTabChange={setActiveTab} />;
+      case AppTab.GUIDE:
+        return <ServiceGuide />;
       case AppTab.INVESTIGATION:
         return <InvestigationCriteria />;
       case AppTab.LIBRARY:

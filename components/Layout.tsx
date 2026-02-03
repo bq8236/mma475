@@ -1,5 +1,5 @@
 
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useRef, useEffect } from 'react';
 import { AppTab } from '../types';
 
 interface LayoutProps {
@@ -9,11 +9,21 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, activeTab, setActiveTab }) => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  // 탭이 변경될 때마다 스크롤을 최상단으로 이동하여 사용자 경험 개선
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
+  }, [activeTab]);
+
   const menuItems = [
-    { id: AppTab.SERVICE, label: '복무', icon: '👤' },
-    { id: AppTab.LIBRARY, label: '규정', icon: '📚' },
+    { id: AppTab.SERVICE, label: '홈', icon: '🏠' },
+    { id: AppTab.GUIDE, label: '복무안내', icon: '🛡️' },
     { id: AppTab.CHECKLIST, label: '체크', icon: '✅' },
     { id: AppTab.INVESTIGATION, label: '조사기준', icon: '📋' },
+    { id: AppTab.LIBRARY, label: '규정', icon: '📚' },
   ];
 
   return (
@@ -37,7 +47,7 @@ const Layout: React.FC<LayoutProps> = ({ children, activeTab, setActiveTab }) =>
               }`}
             >
               <span className="text-lg">{item.icon}</span>
-              {item.label === '복무' ? '대시보드' : item.label === '조사기준' ? '실태조사 처리기준' : item.label === '규정' ? '규정 라이브러리' : '행정 체크리스트'}
+              {item.label}
             </button>
           ))}
         </nav>
@@ -53,7 +63,10 @@ const Layout: React.FC<LayoutProps> = ({ children, activeTab, setActiveTab }) =>
           <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-[10px] font-bold">관</div>
         </header>
 
-        <div className="flex-1 overflow-y-auto p-4 md:p-8">
+        <div 
+          ref={scrollContainerRef}
+          className="flex-1 overflow-y-auto p-4 md:p-8 scroll-smooth"
+        >
           {children}
         </div>
       </main>

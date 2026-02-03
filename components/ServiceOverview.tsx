@@ -54,24 +54,26 @@ const ServiceOverview: React.FC<{ onTabChange: (tab: AppTab) => void }> = ({ onT
       </div>
 
       <div className="grid grid-cols-1 gap-4">
-        {/* 규정 섹션 */}
+        {/* 1. 복무 안내 가이드 섹션 */}
         <DashboardCard 
-          title="복무 규정 라이브러리" 
-          icon="📚" 
-          description="최신 병무청 훈령 및 법령"
-          onClick={() => onTabChange(AppTab.LIBRARY)}
+          title="사회복무요원의 복무" 
+          icon="🛡️" 
+          description="기본의무, 휴가, 보수 안내 가이드"
+          onClick={() => onTabChange(AppTab.GUIDE)}
+          color="indigo"
+          badge="안내용"
         >
-          <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
-            {topRegulations.map(reg => (
-              <div key={reg.id} className="flex items-center gap-2 py-1">
-                <span className="w-1 h-1 rounded-full bg-blue-500"></span>
-                <span className="text-xs text-slate-600 truncate font-medium">{reg.title}</span>
-              </div>
-            ))}
+          <div className="grid grid-cols-2 gap-2">
+            <div className="bg-indigo-50 p-3 rounded-2xl text-[11px] text-indigo-700 font-bold">
+              🏖️ 휴가 규정
+            </div>
+            <div className="bg-emerald-50 p-3 rounded-2xl text-[11px] text-emerald-700 font-bold">
+              💰 보수/여비
+            </div>
           </div>
         </DashboardCard>
 
-        {/* 체크리스트 섹션 */}
+        {/* 2. 체크리스트 섹션 */}
         <DashboardCard 
           title="행정 체크리스트" 
           icon="✅" 
@@ -87,7 +89,7 @@ const ServiceOverview: React.FC<{ onTabChange: (tab: AppTab) => void }> = ({ onT
           </div>
         </DashboardCard>
 
-        {/* 실태조사 기준 퀵 링크 (맨 하단 배치) */}
+        {/* 3. 실태조사 결과 처리기준 (순서 변경됨) */}
         <DashboardCard 
           title="실태조사 결과 처리기준" 
           icon="📋" 
@@ -102,6 +104,23 @@ const ServiceOverview: React.FC<{ onTabChange: (tab: AppTab) => void }> = ({ onT
               <div key={item.id} className="flex items-center gap-2 mb-1 last:mb-0">
                 <span className="w-1 h-1 rounded-full bg-red-400"></span>
                 <span className="text-[11px] text-red-700 truncate">{item.defect}</span>
+              </div>
+            ))}
+          </div>
+        </DashboardCard>
+
+        {/* 4. 규정 섹션 (실태조사 다음으로 배치) */}
+        <DashboardCard 
+          title="복무 규정 라이브러리" 
+          icon="📚" 
+          description="최신 병무청 훈령 및 법령"
+          onClick={() => onTabChange(AppTab.LIBRARY)}
+        >
+          <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+            {topRegulations.map(reg => (
+              <div key={reg.id} className="flex items-center gap-2 py-1">
+                <span className="w-1 h-1 rounded-full bg-blue-500"></span>
+                <span className="text-xs text-slate-600 truncate font-medium">{reg.title}</span>
               </div>
             ))}
           </div>

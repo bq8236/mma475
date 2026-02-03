@@ -27,14 +27,14 @@ const Checklist: React.FC = () => {
     { 
       id: 3, 
       text: '보안준수 확인서 징구 (별지 제28호)', 
-      done: true, 
+      done: false, 
       priority: 'Critical', 
       description: '정보시스템 접근 금지, 사진/동영상의 무단 촬영 및 외부 유출 방지 서약' 
     },
     { 
       id: 4, 
       text: '일일복무상황부 및 근무상황 비치 확인(매일)', 
-      done: true, 
+      done: false, 
       priority: 'High', 
       description: '매일 본인 서명 확인 후 복무관리포털(시스템) 최종 대조 및 입력' 
     },
