@@ -48,7 +48,7 @@ const ServiceOverview: React.FC<{ onTabChange: (tab: AppTab) => void }> = ({ onT
       <div className="px-2 pt-2">
         <h2 className="text-2xl font-black text-slate-900 leading-tight">
           반갑습니다, <br/>
-          <span className="text-blue-600">복무관리 전문가</span>님
+          <span className="text-blue-600">사회복무요원 복무관리 담당자</span>님
         </h2>
         <p className="text-slate-500 text-sm mt-2">오늘의 업무 현황과 주요 처리 기준을 확인하세요.</p>
       </div>
@@ -79,7 +79,7 @@ const ServiceOverview: React.FC<{ onTabChange: (tab: AppTab) => void }> = ({ onT
           icon="✅" 
           description="관리담당자 정기 확인 사항"
           onClick={() => onTabChange(AppTab.CHECKLIST)}
-          badge="8개 항목"
+          badge="9개 항목"
         >
           <div className="flex items-center gap-3 p-3 bg-emerald-50 rounded-2xl border border-emerald-100">
             <div className="w-4 h-4 rounded border border-emerald-300 bg-white flex items-center justify-center shrink-0">
@@ -89,7 +89,7 @@ const ServiceOverview: React.FC<{ onTabChange: (tab: AppTab) => void }> = ({ onT
           </div>
         </DashboardCard>
 
-        {/* 3. 실태조사 결과 처리기준 (순서 변경됨) */}
+        {/* 3. 실태조사 결과 처리기준 */}
         <DashboardCard 
           title="실태조사 결과 처리기준" 
           icon="📋" 
@@ -109,7 +109,7 @@ const ServiceOverview: React.FC<{ onTabChange: (tab: AppTab) => void }> = ({ onT
           </div>
         </DashboardCard>
 
-        {/* 4. 규정 섹션 (실태조사 다음으로 배치) */}
+        {/* 4. 규정 섹션 */}
         <DashboardCard 
           title="복무 규정 라이브러리" 
           icon="📚" 
