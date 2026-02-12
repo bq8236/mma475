@@ -1,25 +1,25 @@
 
-import { GoogleGenAI, Chat } from "@google/genai";
+import { GoogleGenAI, GenerateContentResponse, Content } from "@google/genai";
 import { SYSTEM_INSTRUCTION } from "../constants";
 
 export class GeminiService {
-  private ai: GoogleGenAI;
-  private chat: Chat;
+  // Use gemini-3-pro-preview for complex text tasks such as legal and regulatory interpretation.
+  private modelName = 'gemini-3-pro-preview';
 
-  constructor() {
-    this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
-    this.chat = this.ai.chats.create({
-      model: 'gemini-3-flash-preview',
-      config: {
-        systemInstruction: SYSTEM_INSTRUCTION,
-        temperature: 0.7,
-      },
-    });
-  }
-
-  async sendMessage(message: string) {
+  async sendMessage(message: string, history: Content[] = []) {
     try {
-      const response = await this.chat.sendMessage({ message });
+      // Create a new instance right before the call to ensure it uses the most up-to-date API key.
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const chat = ai.chats.create({
+        model: this.modelName,
+        config: {
+          systemInstruction: SYSTEM_INSTRUCTION,
+          temperature: 0.7,
+        },
+        history: history,
+      });
+
+      const response = await chat.sendMessage({ message });
       return response.text;
     } catch (error) {
       console.error("Gemini API Error:", error);
@@ -27,11 +27,23 @@ export class GeminiService {
     }
   }
 
-  async sendMessageStream(message: string, onChunk: (chunk: string) => void) {
+  async sendMessageStream(message: string, history: Content[] = [], onChunk: (chunk: string) => void) {
     try {
-      const result = await this.chat.sendMessageStream({ message });
+      // Create a new instance right before the call to ensure it uses the most up-to-date API key.
+      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const chat = ai.chats.create({
+        model: this.modelName,
+        config: {
+          systemInstruction: SYSTEM_INSTRUCTION,
+          temperature: 0.7,
+        },
+        history: history,
+      });
+
+      const result = await chat.sendMessageStream({ message });
       for await (const chunk of result) {
-        onChunk(chunk.text || "");
+        const c = chunk as GenerateContentResponse;
+        onChunk(c.text || "");
       }
     } catch (error) {
       console.error("Gemini API Stream Error:", error);

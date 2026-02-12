@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { geminiService } from '../services/geminiService';
 import { Message } from '../types';
+import { Content } from '@google/genai';
 
 const ChatAssistant: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
@@ -21,12 +22,19 @@ const ChatAssistant: React.FC = () => {
     if (!input.trim() || isLoading) return;
 
     const userMsg: Message = { role: 'user', content: input, timestamp: new Date() };
-    setMessages(prev => [...prev, userMsg]);
+    const currentMessages = [...messages, userMsg];
+    setMessages(currentMessages);
     setInput('');
     setIsLoading(true);
 
+    // Map conversation history to the format expected by the Google GenAI SDK.
+    const history: Content[] = messages.map(msg => ({
+      role: msg.role,
+      parts: [{ text: msg.content }],
+    }));
+
     try {
-      const response = await geminiService.sendMessage(input);
+      const response = await geminiService.sendMessage(input, history);
       const modelMsg: Message = { 
         role: 'model', 
         content: response || '죄송합니다. 답변을 생성하는 중에 오류가 발생했습니다.', 
