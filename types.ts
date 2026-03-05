@@ -1,10 +1,4 @@
 
-export interface Message {
-  role: 'user' | 'model';
-  content: string;
-  timestamp: Date;
-}
-
 export interface Regulation {
   id: string;
   title: string;
@@ -23,6 +17,10 @@ export interface InvestigationItem {
     condition?: string;
     action: '경고' | '주의' | '시정' | '가중처리';
   }[];
+}
+
+export interface LocalLawRepo {
+  [key: string]: string;
 }
 
 export enum AppTab {

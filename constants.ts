@@ -1,9 +1,6 @@
 
 import { Regulation, InvestigationItem } from './types';
 
-export const SYSTEM_INSTRUCTION = `당신은 대한민국 병무청 '사회복무요원 복무관리 규정' 및 '복무기관 실태조사 결과 처리기준'의 전문가인 AI 어시스턴트입니다.
-사용자의 질문에 대해 [별표 2] 실태조사 결과 처리기준을 포함한 관련 규정을 바탕으로 정확한 답변을 제공하세요.`;
-
 export const INVESTIGATION_CRITERIA: InvestigationItem[] = [
   // 1. 복무관리
   {
@@ -207,7 +204,7 @@ export const INVESTIGATION_CRITERIA: InvestigationItem[] = [
   }
 ];
 
-const BYUNGYEOK_LAW_INTEGRATED_URL = 'https://www.law.go.kr/법령/병역법';
+const BYUNGYEOK_LAW_INTEGRATED_URL = 'https://www.law.go.kr/LSW/lsSc.do?section=&menuId=1&subMenuId=15&tabMenuId=81&eventGubun=060101&query=%EB%B3%91%EC%97%AD%EB%B2%95#undefined';
 
 export const MOCK_REGULATIONS: Regulation[] = [
   // 1. 최상위 법령 그룹
@@ -226,7 +223,7 @@ export const MOCK_REGULATIONS: Regulation[] = [
     title: '사회복무요원 복무관리 규정',
     summary: '사회복무요원의 복무 및 지도·감독에 필요한 세부사항(병무청 훈령)',
     content: '사회복무요원의 복무관리와 관련한 가장 핵심적인 지침으로 휴가, 겸직, 징계 등을 다룹니다.',
-    url: 'https://www.law.go.kr/행정규칙/사회복무요원복무관리규정'
+    url: 'https://www.law.go.kr/admRulSc.do?menuId=5&subMenuId=41&tabMenuId=183&query=%EC%82%AC%ED%9A%8C%EB%B3%B5%EB%AC%B4%EC%9A%94%EC%9B%90%20%EB%B3%B5%EB%AC%B4%EA%B4%80%EB%A6%AC%20%EA%B7%9C%EC%A0%95#liBgcolor1'
   },
   {
     id: 'reg-discipline',
@@ -234,7 +231,7 @@ export const MOCK_REGULATIONS: Regulation[] = [
     title: '사회복무요원 복무규율',
     summary: '사회복무요원이 복무 중 준수해야 할 태도 및 금지 행위',
     content: '복무 중 정당한 직무상 명령 준수, 친절·공정, 비밀엄수 등 요원이 지켜야 할 규율입니다.',
-    url: 'https://www.law.go.kr/행정규칙/사회복무요원복무규율'
+    url: 'https://www.law.go.kr/admRulSc.do?menuId=5&subMenuId=41&tabMenuId=183&query=%EC%82%AC%ED%9A%8C%EB%B3%B5%EB%AC%B4%EC%9A%94%EC%9B%90%20%EB%B3%B5%EB%AC%B4%EA%B7%9C%EC%9C%A8#liBgcolor0'
   },
   // 3. 행정 및 기타 규정
   {
@@ -243,7 +240,7 @@ export const MOCK_REGULATIONS: Regulation[] = [
     title: '사회복무요원 소집업무 규정',
     summary: '소집 통지, 일자 결정 및 소집 업무 처리 세부 사항',
     content: '사회복무요원 소집 대상자의 선발, 통지, 소집일자 조정 및 연기 등 소집 단계의 절차를 규정합니다.',
-    url: 'https://www.law.go.kr/행정규칙/사회복무요원소집업무규정'
+    url: 'https://www.law.go.kr/admRulSc.do?menuId=5&subMenuId=41&tabMenuId=183&query=%EC%82%AC%ED%9A%8C%EB%B3%B5%EB%AC%B4%EC%9A%94%EC%9B%90%20%EC%86%8C%EC%A7%91%EC%97%85%EB%AC%B4%EA%B7%9C%EC%A0%95#liBgcolor0'
   },
   {
     id: 'reg-unfit',
@@ -251,7 +248,7 @@ export const MOCK_REGULATIONS: Regulation[] = [
     title: '사회복무요원 복무부적합 소집해제 처리 규정',
     summary: '질병, 심신장애 등으로 복무가 어려운 요원의 소집해제 심사 절차',
     content: '복무부적합 소집해제 대상자의 범위, 신청 절차, 심사위원회의 심사 기준 등을 다룹니다.',
-    url: 'https://www.law.go.kr/행정규칙/사회복무요원복무부적합소집해제처리규정'
+    url: 'https://www.law.go.kr/admRulSc.do?menuId=5&subMenuId=41&tabMenuId=183&query=%EC%82%AC%ED%9A%8C%EB%B3%B5%EB%AC%B4%EC%9A%94%EC%9B%90%20%EB%B3%B5%EB%AC%B4%EB%B6%80%EC%A0%81%ED%95%A9%20%EC%86%8C%EC%A7%91%ED%95%B4%EC%A0%9C%20%EC%B2%98%EB%A6%AC%20%EA%B7%9C%EC%A0%95'
   },
   // 4. 비용 관련 규정 (맨 하단 위치)
   {
@@ -260,6 +257,6 @@ export const MOCK_REGULATIONS: Regulation[] = [
     title: '사회복무요원 건강보험료 지급 규정',
     summary: '건강보험료 지급 대상 및 국고 지원 절차 규정',
     content: '복무 중인 사회복무요원의 건강보험료 가입 상태에 따른 보험료 지원 기준과 청구 방법을 다룹니다.',
-    url: 'https://www.law.go.kr/행정규칙/사회복무요원건강보험료지급규정'
+    url: 'https://www.law.go.kr/admRulSc.do?menuId=5&subMenuId=41&tabMenuId=183&query=%EC%82%AC%ED%9A%8C%EB%B3%B5%EB%AC%B4%EC%9A%94%EC%9B%90%20%EA%B1%B4%EA%B0%95%EB%B3%B4%ED%97%98%EB%A3%8C%20%EC%A7%80%EA%B8%89%20%EA%B7%9C%EC%A0%95#liBgcolor0'
   }
 ];

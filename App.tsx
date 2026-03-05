@@ -20,7 +20,7 @@ const App: React.FC = () => {
       case AppTab.INVESTIGATION:
         return <InvestigationCriteria />;
       case AppTab.LIBRARY:
-        return <Library />;
+        return <Library onTabChange={setActiveTab} />;
       case AppTab.CHECKLIST:
         return <Checklist />;
       case AppTab.CASES:

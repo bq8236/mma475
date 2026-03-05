@@ -1,8 +1,13 @@
 
 import React, { useState } from 'react';
 import { MOCK_REGULATIONS } from '../constants';
+import { AppTab } from '../types';
 
-const Library: React.FC = () => {
+interface LibraryProps {
+  onTabChange?: (tab: AppTab) => void;
+}
+
+const Library: React.FC<LibraryProps> = ({ onTabChange }) => {
   const [searchTerm, setSearchTerm] = useState('');
   
   const filtered = MOCK_REGULATIONS.filter(reg => 
@@ -93,17 +98,6 @@ const Library: React.FC = () => {
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Floating AI Search Bar or Entry */}
-      <div className="fixed bottom-24 left-4 right-4 z-40 md:hidden">
-        <button className="w-full bg-slate-900 text-white px-6 py-4 rounded-[24px] font-black text-sm shadow-2xl flex items-center justify-between border border-white/10 active:scale-95 transition-all">
-          <div className="flex items-center gap-2">
-            <span className="animate-pulse">🤖</span>
-            <span>AI 규정 해석 어시스턴트</span>
-          </div>
-          <span className="bg-blue-500 px-2 py-0.5 rounded text-[10px]">ACTIVE</span>
-        </button>
       </div>
     </div>
   );

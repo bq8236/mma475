@@ -136,8 +136,11 @@ const Layout: React.FC<LayoutProps> = ({ children, activeTab, setActiveTab }) =>
                 취소
               </button>
               <button 
-                // Fix: window.close() returns void, which cannot be tested for truthiness in an || expression.
-                onClick={() => { window.close(); window.location.reload(); }}
+                onClick={() => { 
+                  if (confirm('프로그램을 종료하시겠습니까? (초기 화면으로 이동합니다)')) {
+                    window.location.href = '/'; 
+                  }
+                }}
                 className="flex-1 py-4 text-sm font-bold text-red-600 hover:bg-red-50 active:bg-red-100"
               >
                 종료하기
