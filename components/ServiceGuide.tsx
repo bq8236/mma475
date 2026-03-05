@@ -123,7 +123,7 @@ const ServiceGuide: React.FC = () => {
           <div className="space-y-2 text-[11px] text-slate-400 leading-relaxed">
             <p><strong className="text-white">병역법 제26조~제33조:</strong> 사회복무요원의 소집 및 복무 등</p>
             <p><strong className="text-white">병역법 시행령 제47조~제65조:</strong> 복무분야 및 임무 등</p>
-            <p><strong className="text-white">복무관리 규정:</strong> 병무청 훈령 제1913호(최신)</p>
+            <p><strong className="text-white">복무관리 규정:</strong> 병무청 훈령 제2136호(최신)</p>
             <div className="pt-4 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
               <p className="text-blue-400 font-bold">구체적인 처분 기준은 '조사기준' 탭을 확인하세요.</p>
