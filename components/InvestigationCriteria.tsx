@@ -78,14 +78,14 @@ const InvestigationCriteria: React.FC = () => {
               <span className="text-[9px] font-bold text-slate-300">근거: {item.clause}</span>
             </div>
             
-            <h3 className="text-[13px] font-black text-slate-800 leading-tight">
+            <h3 className="text-[15px] font-black text-slate-800 leading-tight">
               {item.defect}
             </h3>
 
             <div className="space-y-1.5">
               {item.criteria.map((c, idx) => (
                 <div key={idx} className="flex items-center justify-between p-2.5 bg-slate-50/50 rounded-xl border border-slate-100">
-                  <span className="text-[11px] font-bold text-slate-600">
+                  <span className="text-[13px] font-bold text-slate-600">
                     {c.condition || '기준 위반 시'}
                   </span>
                   <span className={`px-2 py-0.5 rounded-md text-[10px] font-black border ${getActionColor(c.action)}`}>

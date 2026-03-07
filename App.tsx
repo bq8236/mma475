@@ -6,6 +6,7 @@ import Library from './components/Library';
 import Checklist from './components/Checklist';
 import InvestigationCriteria from './components/InvestigationCriteria';
 import ServiceGuide from './components/ServiceGuide';
+import Schedule from './components/Schedule';
 import { AppTab } from './types';
 
 const App: React.FC = () => {
@@ -23,6 +24,8 @@ const App: React.FC = () => {
         return <Library onTabChange={setActiveTab} />;
       case AppTab.CHECKLIST:
         return <Checklist />;
+      case AppTab.SCHEDULE:
+        return <Schedule />;
       case AppTab.CASES:
         return (
           <div className="flex flex-col items-center justify-center h-full text-center space-y-4 py-20">

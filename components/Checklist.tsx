@@ -101,7 +101,7 @@ const Checklist: React.FC = () => {
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-0.5">
-                  <p className={`text-sm font-bold truncate ${item.done ? 'line-through text-slate-400' : 'text-slate-800'}`}>
+                  <p className={`text-[15px] font-bold truncate ${item.done ? 'line-through text-slate-400' : 'text-slate-800'}`}>
                     {item.text}
                   </p>
                   <span className={`text-[9px] px-1.5 py-0.5 rounded font-black uppercase tracking-tighter shrink-0 ${
@@ -111,7 +111,7 @@ const Checklist: React.FC = () => {
                     {item.priority}
                   </span>
                 </div>
-                <p className={`text-xs ${item.done ? 'text-slate-400' : 'text-slate-500'}`}>
+                <p className={`text-[13px] ${item.done ? 'text-slate-400' : 'text-slate-500'}`}>
                   {item.description}
                 </p>
               </div>
@@ -125,14 +125,14 @@ const Checklist: React.FC = () => {
           <span className="text-blue-500 text-xl font-bold">📜</span>
           <div>
             <h4 className="text-sm font-bold text-blue-800">임무표 등록 기한</h4>
-            <p className="text-xs text-blue-700 mt-1">복무기관 배치 후 7일 이내에 사회복무포털에 등록해야 하며, 임무표를 구체적으로 작성하여 본인에게 확인하게 하여야 합니다.</p>
+            <p className="text-[13px] text-blue-700 mt-1">복무기관 배치 후 7일 이내에 사회복무포털에 등록해야 하며, 임무표를 구체적으로 작성하여 본인에게 확인하게 하여야 합니다.</p>
           </div>
         </div>
         <div className="bg-amber-50 border border-amber-100 p-4 rounded-xl flex gap-3">
           <span className="text-amber-500 text-xl font-bold">🔒</span>
           <div>
             <h4 className="text-sm font-bold text-amber-800">보안 관리 주의사항</h4>
-            <p className="text-xs text-amber-700 mt-1">본인은 직무 수행 시 직원 ID, PW를 이용하여 정보시스템에 접근하지 않아야 하며, 담당자의 관리·감독 하에 업무를 수행해야 합니다.</p>
+            <p className="text-[13px] text-amber-700 mt-1">본인은 직무 수행 시 직원 ID, PW를 이용하여 정보시스템에 접근하지 않아야 하며, 담당자의 관리·감독 하에 업무를 수행해야 합니다.</p>
           </div>
         </div>
       </div>

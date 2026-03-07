@@ -61,7 +61,7 @@ const Library: React.FC<LibraryProps> = ({ onTabChange }) => {
               {reg.title}
             </h3>
             
-            <p className="text-[12px] text-slate-500 leading-relaxed">
+            <p className="text-[14px] text-slate-500 leading-relaxed">
               {reg.summary}
             </p>
 
