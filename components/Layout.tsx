@@ -97,7 +97,7 @@ const Layout: React.FC<LayoutProps> = ({ children, activeTab, setActiveTab }) =>
         ref={scrollContainerRef}
         className="flex-1 overflow-y-auto scroll-smooth relative"
       >
-        <div className="p-4 pb-32 safe-bottom">
+        <div className="p-4 pb-[calc(6rem+env(safe-area-inset-bottom))]">
           {children}
         </div>
 
@@ -113,7 +113,7 @@ const Layout: React.FC<LayoutProps> = ({ children, activeTab, setActiveTab }) =>
       </main>
 
       {/* 하단 탭 바 */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-xl border-t border-slate-100 flex justify-around items-center h-20 z-50 shadow-[0_-8px_20px_rgba(0,0,0,0.05)] px-2">
+      <nav className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-xl border-t border-slate-100 flex justify-around items-center h-[calc(5rem+env(safe-area-inset-bottom))] pb-[env(safe-area-inset-bottom)] z-50 shadow-[0_-8px_20px_rgba(0,0,0,0.05)] px-2">
         {menuItems.map((item) => (
           <button
             key={item.id}
