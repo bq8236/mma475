@@ -20,10 +20,14 @@ const Schedule: React.FC = () => {
               item.type === 'major' ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-600'
             }`}>
               <span className="text-[10px] opacity-80 uppercase tracking-tighter">
-                {['매일', '매월', '분기', '최초'].includes(item.month) ? 'CYCLE' : 'MONTH'}
+                {item.month === '최초' ? 'INITIAL' : 
+                 item.month === '매일' ? 'DAILY' : 
+                 item.month === '매월' ? 'MONTHLY' : 
+                 item.month === '수시' ? 'ANYTIME' : 
+                 item.month === '분기' ? 'QUARTER' : 'MONTH'}
               </span>
               <span className={`${item.month.length > 2 ? 'text-sm' : 'text-xl'} leading-none`}>
-                {['매일', '매월', '분기', '최초'].includes(item.month) ? item.month : item.month.replace('월', '')}
+                {['매일', '매월', '분기', '최초', '수시'].includes(item.month) ? item.month : item.month.replace('월', '')}
               </span>
             </div>
             

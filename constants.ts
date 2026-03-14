@@ -299,7 +299,7 @@ export const SERVICE_GUIDE_DATA: GuideSection[] = [
     icon: '💳',
     items: [
       { label: '봉급 (복무기간별)', content: '소집월~2개월(75만원), 3~8개월(90만원), 9~14개월(120만원), 15개월~(150만원) 기준 지급' },
-      { label: '중식비', content: '1일 7,000원 이상 (실제 복무일수만큼 실비 지급)' },
+      { label: '중식비', content: '1일 9,000원 이상 (실제 복무일수만큼 실비 지급)' },
       { label: '교통비', content: '대중교통(시내버스) 왕복이용요금(현금기준)' },
       { label: '건강보험료', content: '복무기간 중 건강보험료 전액 국가 부담 (지역가입자 또는 직장피부양자)', isBenefit: true }
     ]
@@ -327,6 +327,7 @@ export const SCHEDULE_DATA: ScheduleItem[] = [
   { month: '최초', title: '최초 배치 시 필수 행정', description: '배치 전 교육 실시, 신상명세서·임무표·보안준수서약서 작성 및 서명 확인', type: 'major' },
   { month: '매일', title: '일일 복무상황 확인', description: '일일복무상황부 비치 및 본인 서명 확인, 복무포털 대조 입력', type: 'regular' },
   { month: '매월', title: '근무편성 및 교육일지', description: '월간 근무편성표 작성(첫날), 직무/소양 교육 실시 및 교육일지 작성', type: 'regular' },
+  { month: '수시', title: '병가 및 휴가 증빙 관리', description: '병가 증빙서류(진단서 등) 적정성 검토 및 휴가 신청 내역 확인', type: 'regular' },
   { month: '분기', title: '관찰면담 및 실태점검', description: '분기별 1회 이상 관찰면담 실시 및 기록, 자체 복무실태 점검', type: 'major' },
   { month: '1월', title: '연간 계획 수립', description: '연간 복무관리 및 교육 계획 수립, 전년도 실적 분석', type: 'major' },
   { month: '2월', title: '상반기 실태조사 대비', description: '지방병무청 상반기 실태조사 대비 서류 및 현장 점검', type: 'regular' },

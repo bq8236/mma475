@@ -97,7 +97,7 @@ const Layout: React.FC<LayoutProps> = ({ children, activeTab, setActiveTab }) =>
         ref={scrollContainerRef}
         className="flex-1 overflow-y-auto scroll-smooth relative"
       >
-        <div className="p-4 pb-[calc(6rem+env(safe-area-inset-bottom))]">
+        <div className="p-4 pb-[calc(7rem+env(safe-area-inset-bottom))]">
           {children}
         </div>
 
