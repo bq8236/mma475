@@ -279,19 +279,19 @@ export const SERVICE_GUIDE_DATA: GuideSection[] = [
     items: [
       { label: '5대 업무분야', content: '사회복지(60% 이상), 보건의료, 환경안전, 교육문화, 행정지원 등 공익 목적 업무 수행' },
       { label: '기본 근무형태', content: '주 5일 근무, 09:00~18:00 (점심시간 12:00~13:00 제외)' },
-      { label: '근무형태 조정', content: '복무기관 실정에 따라 합의 하에 야간 또는 휴일근무 가능 (단, 대체휴무 반드시 부여)' },
+      { label: '호칭 기준', content: '"○○○ 사회복무요원"으로 호칭하며, 상호 협의 하에 존중하는 호칭 사용' },
       { label: '복제 준수', content: '복무 중에는 반드시 지급된 제복을 착용하고 명찰을 부착하여야 함', isImportant: true }
     ]
   },
   {
-    title: '휴가 제도 (병역법 기준)',
+    title: '휴가 제도',
     icon: '🏖️',
     items: [
       { label: '연가 (총 28일)', content: '소집일부터 1년 이내 15일, 1년 초과 시 13일 사용 가능' },
-      { label: '병가 (30일)', content: '질병 또는 부상으로 직무 수행 불가 시. 4일 이상 시 진단서 제출 필수', isImportant: true },
-      { label: '공가', content: '병역판정검사, 투표 참여, 국가기관 소환, 천재지변 등으로 근무 불가 시' },
-      { label: '청원휴가', content: '본인 결혼(5일), 배우자 출산(10일), 부모/배우자 사망(5일) 등' },
-      { label: '특별휴가', content: '표창, 모범요원, 근무형편이 열악한 분야의 복무자 위로의 필요성이 있는 경우 복무기관의 장 부여' }
+      { label: '병가 (30일)', content: '3일 이내는 처방전/소견서, 4일 이상은 진단서 필수. 1일 이내 경미 질환은 연 6회 무서류 증빙 가능', isImportant: true },
+      { label: '병가 미사용 인센티브', content: '소집해제 30일 전까지 병가 미사용 시 5일, 2일 이내 사용 시 2일 연가 가산', isBenefit: true },
+      { label: '특별휴가 (복지분야)', content: '사회복지시설 및 장애학생 지원 분야 복무자는 연 10일(총 20일) 부여', isBenefit: true },
+      { label: '청원휴가', content: '결혼(5일), 사망(부모/배우자 5일), 출산(배우자 10일) 등 사유 발생 시' }
     ]
   },
   {
@@ -300,18 +300,19 @@ export const SERVICE_GUIDE_DATA: GuideSection[] = [
     items: [
       { label: '봉급 (복무기간별)', content: '소집월~2개월(75만원), 3~8개월(90만원), 9~14개월(120만원), 15개월~(150만원) 기준 지급' },
       { label: '중식비', content: '1일 9,000원 이상 (실제 복무일수만큼 실비 지급)' },
-      { label: '교통비', content: '대중교통(시내버스) 왕복이용요금(현금기준)' },
+      { label: '교통비', content: '대중교통 왕복 이용요금 실비 지급. 도보 출퇴근 시에도 기본 요금 지급', isBenefit: true },
       { label: '건강보험료', content: '복무기간 중 건강보험료 전액 국가 부담 (지역가입자 또는 직장피부양자)', isBenefit: true }
     ]
   },
   {
-    title: '준수사항 및 혜택',
+    title: '권익보호 및 혜택',
     icon: '📜',
     items: [
-      { label: '겸직 제한', content: '생계유지 곤란 등 부득이한 사유 시 복무기관장 사전 승인 필요', isImportant: true },
-      { label: '장병내일준비적금', content: '월 최대 55만원 납입 시 국고지원금(매칭지원금) 100% 지원. 원금의 2배 수준 자산 형성 가능', isBenefit: true },
-      { label: '정치행위 금지', content: '정당 가입 및 선거운동 등 정치적 목적을 가진 행위 일체 금지' },
-      { label: '자기계발 지원', content: '사회복무요원 원격강좌(e-러닝) 수강 시 학점 인정 및 수강료 지원', isBenefit: true }
+      { label: '장병내일준비적금', content: '월 최대 55만원 납입 시 국고지원금 100% 매칭지원. 자산 형성 지원', isBenefit: true },
+      { label: '학점/학비 지원', content: '대학 원격강좌 수강 시 수강료 80% 지원 및 학점 취득 지원', isBenefit: true },
+      { label: '밀리패스 혜택', content: '전용 앱을 통해 기차 예매 할인, 복지몰 할인 등 다양한 혜택 제공', isBenefit: true },
+      { label: '심리 상담 지원', content: '정신적 어려움 호소 시 전문 상담기관 연계 지원(상담 시간 공가 처리)', isBenefit: true },
+      { label: '겸직 제한', content: '생계유지 등 사유 시 복무기관장 사전 승인 후 가능', isImportant: true }
     ]
   }
 ];
