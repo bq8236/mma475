@@ -100,8 +100,8 @@ const Checklist: React.FC = () => {
                 {item.done && <span className="text-white text-[10px] font-black">✓</span>}
               </div>
               <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-0.5">
-                  <p className={`text-[15px] font-bold truncate ${item.done ? 'line-through text-slate-400' : 'text-slate-800'}`}>
+                <div className="flex items-start gap-2 mb-0.5">
+                  <p className={`text-[15px] font-bold ${item.done ? 'line-through text-slate-400' : 'text-slate-800'}`}>
                     {item.text}
                   </p>
                   <span className={`text-[9px] px-1.5 py-0.5 rounded font-black uppercase tracking-tighter shrink-0 ${
