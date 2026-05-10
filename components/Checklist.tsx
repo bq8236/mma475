@@ -1,7 +1,160 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Eye, CheckCircle2, AlertCircle, X, Info, FileText, UserCheck, ShieldCheck } from 'lucide-react';
+import { Eye, CheckCircle2, AlertCircle, X, Info, FileText, UserCheck, ShieldCheck, ClipboardList, MapPin, GraduationCap, FileSignature, Clock, CalendarRange, Wallet, MessageSquareQuote } from 'lucide-react';
+
+const ArrivalGuideline = () => (
+  <div className="space-y-4 font-sans">
+    <div className="flex items-center gap-2 mb-4 border-l-4 border-slate-900 pl-3">
+      <h3 className="text-lg font-bold text-slate-800">사회복무요원 출근시 가이드라인</h3>
+    </div>
+
+    {/* Step 01 */}
+    <div className="flex gap-4 p-4 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+      <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center shrink-0 border-2 border-slate-200">
+        <span className="text-xs font-bold text-slate-600">01</span>
+      </div>
+      <div className="flex-1">
+        <div className="bg-slate-700 text-white px-3 py-1.5 rounded-lg inline-block font-bold text-[13px] mb-2">신상명세서 작성</div>
+        <div className="text-[12px] text-slate-600 space-y-1.5 leading-relaxed">
+          <p>사회복무요원이 자필로 가족관계, 질병 등 포함하여 작성</p>
+          <p className="flex items-center gap-1.5">
+            <span className="text-blue-500">→</span> 복무분야, 근무지 배치 및 고충처리 등 복무관리 자료로 활용
+          </p>
+          <p className="flex items-center gap-1.5 font-bold text-rose-600">
+            <CheckCircle2 size={12} /> 신상명세서 내 민감정보 수집이용동의에 체크 확인
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Step 02 */}
+    <div className="flex gap-4 p-4 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+      <div className="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center shrink-0 border-2 border-slate-800">
+        <span className="text-xs font-bold text-white">02</span>
+      </div>
+      <div className="flex-1">
+        <div className="bg-slate-900 text-white px-3 py-1.5 rounded-lg inline-block font-bold text-[13px] mb-2 text-center w-full sm:w-auto">복무분야/근무지 지정</div>
+        <div className="text-[12px] text-slate-600 space-y-1.5 leading-relaxed">
+          <p>신상명세서 상 거주지(출퇴근 시간), 질병 등 고려, 근무지/복무분야 지정</p>
+          <p className="flex items-center gap-1.5">
+            <span className="text-blue-500">→</span> 사회복무포털-복무분야/근무지지정 입력 · 지방병무청 통보(5일 이내)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Step 03 */}
+    <div className="flex gap-4 p-4 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+      <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center shrink-0 border-2 border-slate-200">
+        <span className="text-xs font-bold text-slate-600">03</span>
+      </div>
+      <div className="flex-1">
+        <div className="bg-slate-700 text-white px-3 py-1.5 rounded-lg inline-block font-bold text-[13px] mb-2 text-center w-full sm:w-auto">배치 전 교육</div>
+        <div className="text-[12px] text-slate-600 leading-relaxed">
+          근무지 배치 전 사회복무요원에게 사회복무요원의 신분(의무), 복무규정(휴가, 보수 등) 및 규정 위반시 처벌기준, 복무기관에서 직무수행시 유의사항 등을 교육
+        </div>
+      </div>
+    </div>
+
+    {/* Step 04 */}
+    <div className="flex gap-4 p-4 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+      <div className="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center shrink-0 border-2 border-slate-800">
+        <span className="text-xs font-bold text-white">04</span>
+      </div>
+      <div className="flex-1">
+        <div className="bg-slate-900 text-white px-3 py-1.5 rounded-lg inline-block font-bold text-[13px] mb-2 text-center w-full sm:w-auto">임무표 등 작성(7일이내)</div>
+        <div className="text-[12px] text-slate-600 space-y-2 leading-relaxed">
+          <p className="flex items-start gap-2">
+            <span className="font-bold text-slate-800 shrink-0">(임무표)</span>
+            <span>수행해야 할 임무를 구체적으로 작성</span>
+          </p>
+          <p className="flex items-start gap-2">
+            <span className="font-bold text-slate-800 shrink-0">(보안준수확인서)</span>
+            <span>전체를 읽어보게 한 후 서명</span>
+          </p>
+          <p className="text-blue-600 font-bold text-[11px] text-right">* 사회복무요원과 근무지의 장이 서명</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Step 05 */}
+    <div className="flex gap-4 p-4 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+      <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center shrink-0 border-2 border-slate-200">
+        <span className="text-xs font-bold text-slate-600">05</span>
+      </div>
+      <div className="flex-1">
+        <div className="bg-slate-700 text-white px-3 py-1.5 rounded-lg inline-block font-bold text-[13px] mb-2 text-center w-full sm:w-auto">근무상황 관리</div>
+        <div className="text-[12px] text-slate-600 space-y-2 leading-relaxed">
+          <p className="flex items-start gap-2">
+            <span className="font-bold text-slate-800 shrink-0">(출근)</span>
+            <span>사회복무요원이 출근시간 시작 전 비치된 일일복무상황부에 서명</span>
+          </p>
+          <p className="flex items-start gap-2">
+            <span className="font-bold text-slate-800 shrink-0">(휴가)</span>
+            <span>불가피한 경우를 제외하고 사전에 허가 받을 수 있도록 안내</span>
+          </p>
+          <p className="flex items-center gap-1.5 bg-blue-50 p-2 rounded-lg text-blue-700">
+            <Info size={12} /> 일일복무상황부에 기재된 복무기록을 사회복무포털에 입력(주1회 이상)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Step 06 */}
+    <div className="flex gap-4 p-4 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+      <div className="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center shrink-0 border-2 border-slate-800">
+        <span className="text-xs font-bold text-white">06</span>
+      </div>
+      <div className="flex-1">
+        <div className="bg-slate-900 text-white px-3 py-1.5 rounded-lg inline-block font-bold text-[13px] mb-2 text-center w-full sm:w-auto">월 1회 직무교육</div>
+        <div className="text-[12px] text-slate-600 space-y-2 leading-relaxed">
+          <p>① 공무수행자로서의 정신자세 ② 복무기관 이용객 특성 및 업무 시 유의할 점 ③ 개인정보 보호 교육 포함하여 교육</p>
+          <div className="bg-rose-50 p-2 rounded-lg border border-rose-100 text-rose-700 text-[11px]">
+            <p className="flex items-start gap-1.5">
+              <CheckCircle2 size={12} className="mt-0.5 shrink-0" />
+              <span>복지시설 및 장애학생 지원 분야의 경우, 사회복무요원이 관련분야 경험이 없음을 고려, 상세한 업무 방법 및 돌발상황시 대처방법 등 교육, 선의의 피해가 발생하지 않도록 노력</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Step 07 */}
+    <div className="flex gap-4 p-4 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+      <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center shrink-0 border-2 border-slate-200">
+        <span className="text-xs font-bold text-slate-600">07</span>
+      </div>
+      <div className="flex-1">
+        <div className="bg-slate-700 text-white px-3 py-1.5 rounded-lg inline-block font-bold text-[13px] mb-2 text-center w-full sm:w-auto">보수 지급</div>
+        <div className="text-[12px] text-slate-600 space-y-1.5 leading-relaxed">
+          <p>매월 복무기관의 월 보수 지급일 또는 복무기관에서 정한 날 기준 지급</p>
+          <p className="text-blue-600 font-bold text-[11px]">* 사회복무포털 등에 입력된 근태 기준으로 보수액(교통, 식비 등) 산정</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Step 08 */}
+    <div className="flex gap-4 p-4 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+      <div className="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center shrink-0 border-2 border-slate-800">
+        <span className="text-xs font-bold text-white">08</span>
+      </div>
+      <div className="flex-1">
+        <div className="bg-slate-900 text-white px-3 py-1.5 rounded-lg inline-block font-bold text-[13px] mb-2 text-center w-full sm:w-auto">관찰/면담(분기)</div>
+        <div className="text-[12px] text-slate-600 space-y-2 leading-relaxed">
+          <p>분기 1회 이상 소속 사회복무요원의 관찰 및 면담내용 작성</p>
+          <p className="flex items-center gap-1.5 text-blue-600">
+            <span className="font-black">*</span> 관찰 면담일지, 교육일지 등 사회복무포털 등록
+          </p>
+          <p className="flex items-start gap-1.5 font-bold text-rose-600">
+            <CheckCircle2 size={12} className="mt-0.5 shrink-0" />
+            <span>사회복무요원 고충 발생 시 복무기관 차원의 해소 노력</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 const DailyReportGuide = () => (
   <div className="bg-slate-100 p-4 sm:p-8 rounded-3xl border border-slate-200">
@@ -152,6 +305,15 @@ const DailyReportGuide = () => (
 const Checklist: React.FC = () => {
   const [items, setItems] = useState([
     { 
+      id: 10, 
+      text: '사회복무요원 복무관리체계 확인', 
+      done: false, 
+      priority: 'High', 
+      description: '사회복무요원 출근시 가이드라인(신상명세서, 임무표, 교육 등) 단계별 확인',
+      hasGuide: true,
+      guideType: 'arrival'
+    },
+    { 
       id: 9, 
       text: '배치전 교육 실시 (최초 배치 시)', 
       done: false, 
@@ -185,7 +347,8 @@ const Checklist: React.FC = () => {
       done: false, 
       priority: 'High', 
       description: '매일 본인 서명 확인 후 복무관리포털(시스템) 최종 대조 및 입력',
-      hasGuide: true
+      hasGuide: true,
+      guideType: 'daily'
     },
     { 
       id: 5, 
@@ -217,7 +380,7 @@ const Checklist: React.FC = () => {
     },
   ]);
 
-  const [showGuide, setShowGuide] = useState(false);
+  const [activeGuide, setActiveGuide] = useState<null | 'daily' | 'arrival'>(null);
 
   const toggle = (id: number) => {
     setItems(items.map(item => item.id === id ? { ...item, done: !item.done } : item));
@@ -248,7 +411,7 @@ const Checklist: React.FC = () => {
         </div>
         
         <div className="divide-y divide-slate-100">
-          {items.map((item) => (
+          {items.map((item: any) => (
             <div 
               key={item.id} 
               className={`p-5 flex items-start gap-4 transition-all active:scale-[0.98] ${item.done ? 'bg-slate-50/50' : 'bg-white'}`}
@@ -281,11 +444,11 @@ const Checklist: React.FC = () => {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        setShowGuide(true);
+                        setActiveGuide(item.guideType as any);
                       }}
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-lg w-fit mt-1 hover:bg-blue-100 transition-colors border border-blue-100"
                     >
-                      <Eye size={12} /> 작성 가이드 보기
+                      <Eye size={12} /> {item.guideType === 'arrival' ? '사회복무요원 출근시 가이드라인 보기' : '작성 가이드 보기'}
                     </button>
                   )}
                 </div>
@@ -296,13 +459,13 @@ const Checklist: React.FC = () => {
       </div>
 
       <AnimatePresence>
-        {showGuide && (
+        {activeGuide && (
           <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setShowGuide(false)}
+              onClick={() => setActiveGuide(null)}
               className="absolute inset-0 bg-black/60 backdrop-blur-sm px-4"
             />
             <motion.div 
@@ -318,11 +481,13 @@ const Checklist: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-bold">작성 가이드</h3>
-                    <p className="text-[10px] text-slate-400">일일복무상황부 및 근무상황 관리</p>
+                    <p className="text-[10px] text-slate-400">
+                      {activeGuide === 'arrival' ? '사회복무요원 복무관리체계' : '일일복무상황부 및 근무상황 관리'}
+                    </p>
                   </div>
                 </div>
                 <button 
-                  onClick={() => setShowGuide(false)}
+                  onClick={() => setActiveGuide(null)}
                   className="p-2 hover:bg-slate-800 rounded-full transition-colors"
                 >
                   <X size={20} />
@@ -330,40 +495,42 @@ const Checklist: React.FC = () => {
               </div>
 
               <div className="flex-1 overflow-y-auto p-4 custom-scrollbar">
-                <DailyReportGuide />
+                {activeGuide === 'arrival' ? <ArrivalGuideline /> : <DailyReportGuide />}
                 
-                <div className="mt-6 space-y-4">
-                  <div className="flex gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                    <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shrink-0 border border-slate-200">
-                      <UserCheck className="text-emerald-600" size={20} />
+                {activeGuide === 'daily' && (
+                  <div className="mt-6 space-y-4">
+                    <div className="flex gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                      <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shrink-0 border border-slate-200">
+                        <UserCheck className="text-emerald-600" size={20} />
+                      </div>
+                      <div>
+                        <h4 className="text-[13px] font-bold text-slate-800">작성방법</h4>
+                        <ul className="text-[12px] text-slate-500 mt-1.5 space-y-1.5 leading-relaxed">
+                          <li>① 사회복무요원 매일 근무시간 전 출근하여 일일복무상황부에 <span className="font-bold text-slate-700 bg-yellow-100 px-1">본인서명</span></li>
+                          <li>② 담당자는 사회복무요원 출근 여부를 대면으로 확인 후 <span className="font-bold text-slate-700 bg-yellow-100 px-1">확인자 란에 확인서명</span></li>
+                          <li>③ 출근 외 근무사항은 일일복무상황부 <span className="font-bold text-slate-700 bg-yellow-100 px-1">근무사항 란에 결재하여 허가</span></li>
+                        </ul>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="text-[13px] font-bold text-slate-800">작성방법</h4>
-                      <ul className="text-[12px] text-slate-500 mt-1.5 space-y-1.5 leading-relaxed">
-                        <li>① 사회복무요원 매일 근무시간 전 출근하여 일일복무상황부에 <span className="font-bold text-slate-700 bg-yellow-100 px-1">본인서명</span></li>
-                        <li>② 담당자는 사회복무요원 출근 여부를 대면으로 확인 후 <span className="font-bold text-slate-700 bg-yellow-100 px-1">확인자 란에 확인서명</span></li>
-                        <li>③ 출근 외 근무사항은 일일복무상황부 <span className="font-bold text-slate-700 bg-yellow-100 px-1">근무사항 란에 결재하여 허가</span></li>
-                      </ul>
+                    <div className="flex gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                      <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shrink-0 border border-slate-200">
+                        <ShieldCheck className="text-blue-600" size={20} />
+                      </div>
+                      <div>
+                        <h4 className="text-[13px] font-bold text-slate-800">사후관리</h4>
+                        <ul className="text-[12px] text-slate-500 mt-1.5 space-y-1.5 leading-relaxed">
+                          <li>① 출근 및 유고사항 <span className="font-bold text-slate-700 bg-yellow-100 px-1 text-[11px]">사회복무포털 등록</span></li>
+                          <li>② 일일복무상황부 및 <span className="font-bold text-slate-700 bg-yellow-100 px-1">관련서류 보관(5년)</span></li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                    <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shrink-0 border border-slate-200">
-                      <ShieldCheck className="text-blue-600" size={20} />
-                    </div>
-                    <div>
-                      <h4 className="text-[13px] font-bold text-slate-800">사후관리</h4>
-                      <ul className="text-[12px] text-slate-500 mt-1.5 space-y-1.5 leading-relaxed">
-                        <li>① 출근 및 유고사항 <span className="font-bold text-slate-700 bg-yellow-100 px-1 text-[11px]">사회복무포털 등록</span></li>
-                        <li>② 일일복무상황부 및 <span className="font-bold text-slate-700 bg-yellow-100 px-1">관련서류 보관(5년)</span></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                )}
               </div>
               
               <div className="p-4 bg-slate-50 border-t shrink-0">
                 <button 
-                  onClick={() => setShowGuide(false)}
+                  onClick={() => setActiveGuide(null)}
                   className="w-full py-3 bg-slate-900 text-white rounded-xl font-bold active:scale-[0.98] transition-transform"
                 >
                   명확히 이해했습니다
