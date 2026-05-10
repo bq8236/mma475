@@ -274,6 +274,19 @@ export interface GuideSection {
 
 export const SERVICE_GUIDE_DATA: GuideSection[] = [
   {
+    title: '사회복무요원의 신분, 의무',
+    icon: '🛡️',
+    items: [
+      { label: '사회복무요원이란?', content: '국가기관, 지방자치단체, 공공단체 및 사회복지시설 등의 공익목적 수행에 필요한 분야에서 일정기간 근무하게 함으로써 병역의무를 이행하는 제도' },
+      { label: '복무 규모', content: '복무인원: 49,000여명 / 복무기관: 12,000여개' },
+      { label: '복무기간/형태', content: '21개월(군사교육 소집 포함) / 출·퇴근 복무' },
+      { label: '복무 분야', content: '국가기관, 지자체, 공공기관, 복지시설 등 공익목적의 분야' },
+      { label: '업무 범위', content: '사회복지, 보건의료 교육 문화 환경 안전 등 사회서비스 업무 및 행정업무의 지원' },
+      { label: '지휘·감독 권한', content: '복무기관의 장 * 복지시설의 경우 시·군·구청장' },
+      { label: '직무상 행위의 성격', content: '사회복무요원의 직무상 행위는 공무수행이며, 성실히 복무해야 함', isImportant: true }
+    ]
+  },
+  {
     title: '업무분야 및 근무시간',
     icon: '🏢',
     items: [

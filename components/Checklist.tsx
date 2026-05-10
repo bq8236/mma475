@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Eye, CheckCircle2, AlertCircle, X, Info, FileText, UserCheck, ShieldCheck, ClipboardList, MapPin, GraduationCap, FileSignature, Clock, CalendarRange, Wallet, MessageSquareQuote, Stethoscope, PlusCircle, HelpCircle } from 'lucide-react';
 
@@ -223,7 +223,7 @@ const ArrivalGuideline = () => (
       <div className="flex-1">
         <div className="bg-slate-900 text-white px-3 py-1.5 rounded-lg inline-block font-bold text-[13px] mb-2 text-center w-full sm:w-auto">월 1회 직무교육</div>
         <div className="text-[12px] text-slate-600 space-y-2 leading-relaxed">
-          <p>① 공무수행자로서의 정신자세 ② 복무기관 이용객 특성 및 업무 시 유의할 점 ③ 개인정보 보호 교육 포함하여 교육</p>
+          <p>① 공무수행자로서의 정신자세 ② 복무기관 이용객 특성 및 업무 시 유의할 점 ③ 개인정보 보호, 복무기관 괴롭힘 예방교육 포함하여 교육</p>
           <div className="bg-rose-50 p-2 rounded-lg border border-rose-100 text-rose-700 text-[11px]">
             <p className="flex items-start gap-1.5">
               <CheckCircle2 size={12} className="mt-0.5 shrink-0" />
@@ -498,6 +498,33 @@ const Checklist: React.FC = () => {
 
   const [activeGuide, setActiveGuide] = useState<null | 'daily' | 'arrival' | 'sick'>(null);
 
+  useEffect(() => {
+    const handlePopState = (event: PopStateEvent) => {
+      if (activeGuide) {
+        setActiveGuide(null);
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [activeGuide]);
+
+  const openGuide = (type: 'daily' | 'arrival' | 'sick') => {
+    window.history.pushState({ modal: true }, "");
+    setActiveGuide(type);
+  };
+
+  const closeGuide = () => {
+    if (activeGuide) {
+      setActiveGuide(null);
+      // If we are closing manually (not via back button), 
+      // we should go back in history to keep it clean.
+      // We can check if the current state was a modal state.
+      if (window.history.state && window.history.state.modal) {
+        window.history.back();
+      }
+    }
+  };
+
   const toggle = (id: number) => {
     setItems(items.map(item => item.id === id ? { ...item, done: !item.done } : item));
   };
@@ -564,7 +591,7 @@ const Checklist: React.FC = () => {
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        setActiveGuide(item.guideType as any);
+                        openGuide(item.guideType as any);
                       }}
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-lg w-fit mt-1 hover:bg-blue-100 transition-colors border border-blue-100"
                     >
@@ -589,7 +616,7 @@ const Checklist: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setActiveGuide(null)}
+              onClick={closeGuide}
               className="absolute inset-0 bg-black/60 backdrop-blur-sm px-4"
             />
             <motion.div 
@@ -613,7 +640,7 @@ const Checklist: React.FC = () => {
                   </div>
                 </div>
                 <button 
-                  onClick={() => setActiveGuide(null)}
+                  onClick={closeGuide}
                   className="p-2 hover:bg-slate-800 rounded-full transition-colors"
                 >
                   <X size={20} />
