@@ -1,7 +1,121 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Eye, CheckCircle2, AlertCircle, X, Info, FileText, UserCheck, ShieldCheck, ClipboardList, MapPin, GraduationCap, FileSignature, Clock, CalendarRange, Wallet, MessageSquareQuote } from 'lucide-react';
+import { Eye, CheckCircle2, AlertCircle, X, Info, FileText, UserCheck, ShieldCheck, ClipboardList, MapPin, GraduationCap, FileSignature, Clock, CalendarRange, Wallet, MessageSquareQuote, Stethoscope, PlusCircle, HelpCircle } from 'lucide-react';
+
+const SickLeaveGuide = () => (
+  <div className="space-y-6 font-sans pb-6">
+    <div className="flex items-center gap-2 mb-4 border-l-4 border-slate-900 pl-3">
+      <h3 className="text-lg font-bold text-slate-800">공무 외 병가 증빙서류 및 규정 가이드</h3>
+    </div>
+
+    {/* Section 1: Basic Rule */}
+    <div className="relative p-6 bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+      <div className="absolute top-0 right-0 p-4 opacity-5">
+        <Clock size={80} />
+      </div>
+      <div className="relative z-10">
+        <div className="flex items-center gap-2 mb-2">
+          <span className="px-2 py-1 bg-slate-900 text-white text-[10px] font-bold rounded">기본 원칙</span>
+          <h4 className="font-bold text-slate-800">질병 등으로 직무를 수행할 수 없을 때</h4>
+        </div>
+        <p className="text-[13px] text-slate-600 leading-relaxed mb-4">복무기간 중 통산 <span className="text-slate-900 font-black text-lg underline decoration-slate-300 underline-offset-4">30일</span> 범위 내 허가</p>
+        
+        <div className="flex items-center justify-between gap-4 py-3 border-y border-dashed border-slate-200">
+          <div className="text-center flex-1">
+            <div className="text-[10px] text-slate-400 mb-1">사회복무요원</div>
+            <div className="bg-slate-100 py-2 rounded-lg text-[11px] font-bold">병가 신청</div>
+          </div>
+          <div className="text-slate-300 italic">→</div>
+          <div className="text-center flex-1">
+            <div className="text-[10px] text-slate-400 mb-1">복무기관</div>
+            <div className="bg-slate-800 text-white py-2 rounded-lg text-[11px] font-bold">질병상태 종합 판단, 허가</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Section 2: Requirements by Duration */}
+    <div className="space-y-3">
+      <h4 className="text-[13px] font-bold text-slate-800 flex items-center gap-2">
+        <FileText size={16} className="text-blue-500" /> ① 병가 일수에 맞는 서류 제출 및 사용 전 교육
+      </h4>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="p-4 bg-white border-l-4 border-blue-400 rounded-r-xl border-y border-r border-slate-200 shadow-sm">
+          <p className="text-[11px] font-bold text-blue-600 mb-1">3일 이내</p>
+          <p className="text-[12px] text-slate-700 font-medium leading-tight">진료확인서·처방전·소견서 중 하나를 사회복무요원이 선택하여 제출</p>
+        </div>
+        <div className="p-4 bg-white border-l-4 border-slate-800 rounded-r-xl border-y border-r border-slate-200 shadow-sm">
+          <p className="text-[11px] font-bold text-slate-800 mb-1">4일 이상</p>
+          <p className="text-[12px] text-slate-700 font-medium leading-tight">진단서 및 입·퇴원확인서(입원시)를 필수 제출</p>
+        </div>
+      </div>
+
+      <div className="p-4 bg-rose-50 border border-rose-100 rounded-2xl relative">
+        <div className="absolute -top-2 left-4 px-2 bg-rose-500 text-white text-[9px] font-bold rounded italic shadow-sm">신 설</div>
+        <p className="text-[12px] text-rose-800 font-bold mb-1">경미한 질환 증빙서류 면제 조항</p>
+        <p className="text-[11px] text-rose-700 leading-relaxed font-medium">병가 기간이 <span className="underline decoration-rose-300">"1일" 이내</span>의 경미한 질환은 <span className="underline decoration-rose-300">"통산 6일"</span> 범위 내에서 증빙서류 없이 허가 가능</p>
+        <div className="mt-2 pl-3 border-l-2 border-rose-200 text-[10px] text-rose-500">
+           → 병가 조퇴, 지각 등 포함하여 누계로 계산
+        </div>
+      </div>
+    </div>
+
+    {/* Section 3: Procedures */}
+    <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
+      <div className="flex items-start gap-3">
+        <div className="bg-white p-1 rounded border border-slate-200 shrink-0 text-[10px] font-bold text-slate-400">②</div>
+        <p className="text-[12px] text-slate-700 leading-relaxed">
+          예상치 못한 질병으로 출근이 어려운 경우 <span className="font-bold text-slate-900">→</span> <span className="text-blue-600 decoration-blue-200 underline">지체 없이</span> 복무기관의 장에게 전화 등으로 알려야 함
+          <span className="block text-[11px] text-slate-500 mt-1">* 사후에 증빙서류를 제출 받아 허가 여부 결정</span>
+        </p>
+      </div>
+      <div className="flex items-start gap-3">
+        <div className="bg-white p-1 rounded border border-slate-200 shrink-0 text-[10px] font-bold text-slate-400">③</div>
+        <p className="text-[12px] text-slate-700 leading-relaxed font-bold">
+          증빙서류를 제출하지 못한 경우 <span className="text-rose-600 underline">"연가"</span> 로 처리
+        </p>
+      </div>
+    </div>
+
+    {/* Section 4: Bonus Vacation */}
+    <div className="border-2 border-slate-900 rounded-3xl overflow-hidden shadow-lg">
+      <div className="bg-slate-900 p-3 flex items-center gap-2">
+        <PlusCircle size={18} className="text-emerald-400" />
+        <h4 className="text-sm font-bold text-white">병가 미사용자 연가가산 (혜택)</h4>
+      </div>
+      <div className="p-5 bg-white space-y-4">
+        <div>
+          <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">대상 요건</p>
+          <ul className="text-[12px] text-slate-700 space-y-2">
+            <li className="flex items-start gap-2">
+              <span className="shrink-0 text-emerald-500 font-bold">①</span>
+              <span>결근, 복무이탈 등 복무의무 위반 사실이 없는 자</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="shrink-0 text-emerald-500 font-bold">②</span>
+              <span>소집해제 30일 전까지 병가를 받지 아니하거나, 2일 이내로 받은 경우</span>
+            </li>
+          </ul>
+        </div>
+        <div className="pt-4 border-t border-slate-100">
+          <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">가산 일수</p>
+          <div className="grid grid-cols-2 gap-3">
+            <div className="bg-emerald-50 p-3 rounded-2xl text-center border border-emerald-100">
+              <p className="text-[10px] text-emerald-600 font-bold">병가 미사용</p>
+              <p className="text-[16px] font-black text-emerald-700 underline decoration-2 decoration-emerald-200">5일 부여</p>
+            </div>
+            <div className="bg-blue-50 p-3 rounded-2xl text-center border border-blue-100">
+              <p className="text-[10px] text-blue-600 font-bold">통산 2일 이내</p>
+              <p className="text-[16px] font-black text-blue-700 underline decoration-2 decoration-blue-200">2일 부여</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 const ArrivalGuideline = () => (
   <div className="space-y-4 font-sans">
@@ -308,7 +422,7 @@ const Checklist: React.FC = () => {
       id: 10, 
       text: '사회복무요원 복무관리체계 확인', 
       done: false, 
-      priority: 'High', 
+      priorities: ['High'], 
       description: '사회복무요원 출근시 가이드라인(신상명세서, 임무표, 교육 등) 단계별 확인',
       hasGuide: true,
       guideType: 'arrival'
@@ -317,35 +431,35 @@ const Checklist: React.FC = () => {
       id: 9, 
       text: '배치전 교육 실시 (최초 배치 시)', 
       done: false, 
-      priority: 'Critical', 
-      description: '사회복무요원 신분(의무), 복무규정(휴가·보수), 위반 시 처벌기준, 직무수행 유의사항 교육' 
+      priorities: [], 
+      description: '사회복무요원 신분(의무), 복무규정(휴가·보수), 위반 시 처벌기준, 직무수행 유의사항 교육'
     },
     { 
       id: 1, 
       text: '사회복무요원 신상명세서 작성 및 확인 (별지 제2호)', 
       done: false, 
-      priority: 'High', 
+      priorities: ['High'], 
       description: '인적사항, 질병정보, 민감정보 수집·이용 동의 여부 필히 확인' 
     },
     { 
       id: 2, 
       text: '사회복무요원 임무표 작성 (별지 제27호)', 
       done: false, 
-      priority: 'High', 
+      priorities: ['High'], 
       description: '주임무 및 공통임무 명시, 복무기관 배치 후 7일 이내 복무포털 등록 및 본인 확인 필수' 
     },
     { 
       id: 3, 
       text: '보안준수 확인서 징구 (별지 제28호)', 
       done: false, 
-      priority: 'Critical', 
+      priorities: ['Critical'], 
       description: '정보시스템 접근 금지, 사진/동영상의 무단 촬영 및 외부 유출 방지 서약' 
     },
     { 
       id: 4, 
       text: '일일복무상황부 및 근무상황 비치 확인(매일)', 
       done: false, 
-      priority: 'High', 
+      priorities: ['Critical', 'High', 'Medium'], 
       description: '매일 본인 서명 확인 후 복무관리포털(시스템) 최종 대조 및 입력',
       hasGuide: true,
       guideType: 'daily'
@@ -354,33 +468,35 @@ const Checklist: React.FC = () => {
       id: 5, 
       text: '근무편성표 작성 및 확인 (매월 첫 근무일)', 
       done: false, 
-      priority: 'Medium', 
+      priorities: ['Medium'], 
       description: '매월 첫 근무일에 해당 월의 근무 일정을 확정하여 공지' 
     },
     { 
       id: 6, 
       text: '병가 증빙서류 적정성 검토', 
       done: false, 
-      priority: 'High', 
-      description: '진단서(4일이상), 진료확인서, 소견서, 처방전만 인정 (영수증/약봉투 불가)' 
+      priorities: ['High', 'Medium'], 
+      description: '진단서(4일이상), 진료확인서, 소견서, 처방전만 인정 (영수증/약봉투 불가)',
+      hasGuide: true,
+      guideType: 'sick'
     },
     { 
       id: 7, 
       text: '교육일지 작성 (월 1회 이상)', 
       done: false, 
-      priority: 'Medium', 
-      description: '개인정보보호, 괴롭힘 예방(필수) 및 규정 교육 내용 기록' 
+      priorities: ['Critical', 'High', 'Medium'], 
+      description: '개인정보보호(필수), 복무기관 괴롭힘 예방 교육(필수), 직무수행에 필요한 사항, 복무관리 규정, 인권침해 예방, 성범죄관련 교육 내용 기록 (등록 : 사회복무포털 -> 복무자정보 -> 교육일지 관리 )' 
     },
     { 
       id: 8, 
       text: '관찰면담 기록 (분기 1회 이상)', 
       done: false, 
-      priority: 'Critical', 
-      description: '신상명세서의 질병정보(민감정보)를 참고하여 업무 적합성 면담 실시' 
+      priorities: ['Medium'], 
+      description: '내용은 업무 및 심리 상태 기록, 신상명세서의 질병정보 등을 참고하여 업무 적합성 면담 실시(등록 : 사회복무포털 -> 복무자정보 -> 관찰/면담기록 ) * 사회복무요원 소집시부터 분기단위 작성(필요시 수시 작성)' 
     },
   ]);
 
-  const [activeGuide, setActiveGuide] = useState<null | 'daily' | 'arrival'>(null);
+  const [activeGuide, setActiveGuide] = useState<null | 'daily' | 'arrival' | 'sick'>(null);
 
   const toggle = (id: number) => {
     setItems(items.map(item => item.id === id ? { ...item, done: !item.done } : item));
@@ -429,12 +545,16 @@ const Checklist: React.FC = () => {
                   <p className={`text-[15px] font-bold leading-tight ${item.done ? 'text-slate-400' : 'text-slate-800'}`}>
                     {item.text}
                   </p>
-                  <span className={`text-[9px] px-1.5 py-0.5 rounded-full font-black uppercase tracking-tighter shrink-0 mt-0.5 ${
-                    item.priority === 'Critical' ? 'bg-red-100 text-red-600' :
-                    item.priority === 'High' ? 'bg-orange-100 text-orange-600' : 'bg-blue-100 text-blue-600'
-                  }`}>
-                    {item.priority}
-                  </span>
+                  <div className="flex flex-wrap gap-1 mt-0.5">
+                    {item.priorities.map((p: string) => (
+                      <span key={p} className={`text-[9px] px-1.5 py-0.5 rounded-full font-black uppercase tracking-tighter shrink-0 ${
+                        p === 'Critical' ? 'bg-red-100 text-red-600' :
+                        p === 'High' ? 'bg-orange-100 text-orange-600' : 'bg-blue-100 text-blue-600'
+                      }`}>
+                        {p === 'Critical' ? '경고' : p === 'High' ? '주의' : '시정'}
+                      </span>
+                    ))}
+                  </div>
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <p className={`text-[13px] leading-relaxed ${item.done ? 'text-slate-300' : 'text-slate-500'}`}>
@@ -448,7 +568,11 @@ const Checklist: React.FC = () => {
                       }}
                       className="inline-flex items-center gap-1.5 text-[11px] font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-lg w-fit mt-1 hover:bg-blue-100 transition-colors border border-blue-100"
                     >
-                      <Eye size={12} /> {item.guideType === 'arrival' ? '사회복무요원 출근시 가이드라인 보기' : '작성 가이드 보기'}
+                      <Eye size={12} /> {
+                        item.guideType === 'arrival' ? '사회복무요원 출근시 가이드라인 보기' : 
+                        item.guideType === 'sick' ? '검토 가이드 보기' : 
+                        '작성 가이드 보기'
+                      }
                     </button>
                   )}
                 </div>
@@ -482,7 +606,9 @@ const Checklist: React.FC = () => {
                   <div>
                     <h3 className="font-bold">작성 가이드</h3>
                     <p className="text-[10px] text-slate-400">
-                      {activeGuide === 'arrival' ? '사회복무요원 복무관리체계' : '일일복무상황부 및 근무상황 관리'}
+                      {activeGuide === 'arrival' ? '사회복무요원 복무관리체계' : 
+                       activeGuide === 'sick' ? '병가 증빙서류 및 규정 가이드' : 
+                       '일일복무상황부 및 근무상황 관리'}
                     </p>
                   </div>
                 </div>
@@ -495,7 +621,9 @@ const Checklist: React.FC = () => {
               </div>
 
               <div className="flex-1 overflow-y-auto p-4 custom-scrollbar">
-                {activeGuide === 'arrival' ? <ArrivalGuideline /> : <DailyReportGuide />}
+                {activeGuide === 'arrival' ? <ArrivalGuideline /> : 
+                 activeGuide === 'sick' ? <SickLeaveGuide /> : 
+                 <DailyReportGuide />}
                 
                 {activeGuide === 'daily' && (
                   <div className="mt-6 space-y-4">
