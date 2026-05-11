@@ -416,6 +416,209 @@ const DailyReportGuide = () => (
   </div>
 );
 
+const StatusChangeGuide = () => (
+  <div className="space-y-6 font-sans pb-6">
+    <div className="flex items-center gap-2 mb-4 border-l-4 border-slate-900 pl-3">
+      <h3 className="text-lg font-bold text-slate-800">신상변동 통보 가이드</h3>
+    </div>
+
+    {/* Section: Process Flow */}
+    <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+      <div className="grid grid-cols-4 gap-2 items-center text-center">
+        <div className="space-y-2">
+          <div className="bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
+            <UserCheck size={20} className="mx-auto text-slate-600" />
+            <p className="text-[10px] font-bold mt-1">사회복무요원</p>
+          </div>
+          <p className="text-[9px] text-slate-500 font-bold">신상변동사항 발생</p>
+        </div>
+        <div className="text-slate-300">→</div>
+        <div className="space-y-2">
+          <div className="bg-white p-2 rounded-xl border border-slate-200 shadow-sm relative">
+            <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-[10px] font-bold text-rose-500 whitespace-nowrap">7일 이내</span>
+            <ShieldCheck size={20} className="mx-auto text-blue-600" />
+            <p className="text-[10px] font-bold mt-1">근무지(복지시설)</p>
+          </div>
+          <p className="text-[9px] text-slate-500 font-bold">신상변동 보고</p>
+        </div>
+        <div className="text-slate-300">→</div>
+      </div>
+      
+      <div className="grid grid-cols-4 gap-2 items-center text-center mt-8">
+        <div className="col-start-2 space-y-2">
+          <div className="bg-slate-900 text-white p-2 rounded-xl shadow-lg relative">
+            <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-[10px] font-bold text-rose-500 whitespace-nowrap">7일 이내</span>
+            <FileText size={20} className="mx-auto text-blue-400" />
+            <p className="text-[10px] font-bold mt-1">복무기관</p>
+          </div>
+          <p className="text-[9px] text-slate-500 font-bold">신상변동 통보</p>
+        </div>
+        <div className="text-slate-300">→</div>
+        <div className="space-y-2">
+          <div className="bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
+            <CheckCircle2 size={20} className="mx-auto text-emerald-600" />
+            <p className="text-[10px] font-bold mt-1">병무청</p>
+          </div>
+          <p className="text-[9px] text-slate-500 font-bold">신상변동 승인</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Section: Targets */}
+    <div className="space-y-3">
+      <div className="flex items-center gap-2">
+        <Info size={18} className="text-blue-600" />
+        <h4 className="font-bold text-slate-800 text-[14px]">(대상) 복무 연장, 복무중단 등 자원관리에 필요한 사항</h4>
+      </div>
+      <div className="grid grid-cols-1 gap-2">
+        {[
+          "① 복무이탈 · 의무위반 경고처분자",
+          "② 복무이탈 · 경고처분 사유 고발자",
+          "③ 복무중단자 및 재복무개시자 (복무이탈 후 중단, 형사사건으로 구속자)",
+          "④ 연가 · 병가를 초과하여 사용한 자",
+          "⑤ 기소중지 또는 재복무 불이행자",
+          "⑥ 복무 중 사망자, 공무상 병가 승인자 등"
+        ].map((text, i) => (
+          <div key={i} className="p-3 bg-white border border-slate-100 rounded-xl text-[12px] text-slate-700 shadow-sm">
+            {text}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Section: Actions */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="p-4 bg-blue-50 border border-blue-100 rounded-2xl space-y-3">
+        <h4 className="font-bold text-blue-900 text-[13px] flex items-center gap-2">
+          <ShieldCheck size={16} /> 근무지 (복지시설)
+        </h4>
+        <div className="text-[11px] text-blue-800 space-y-2">
+          <p className="font-bold underline">사유 별 구비서류 작성 · 보고</p>
+          <p className="text-[10px] text-blue-600">* 사회복무포털-신상변동 통보</p>
+        </div>
+      </div>
+      <div className="p-4 bg-slate-100 border border-slate-200 rounded-2xl space-y-3">
+        <h4 className="font-bold text-slate-900 text-[13px] flex items-center gap-2">
+          <FileSignature size={16} /> 복무기관
+        </h4>
+        <div className="text-[11px] text-slate-700 space-y-2">
+          <p className="font-bold underline">근무지 보고사항 검토 · 통보</p>
+          <ul className="space-y-1 pl-2">
+            <li>- 필요 시 경고장 발부 등 조치</li>
+            <li className="text-[10px] text-slate-500">* 사회복무포털-신상변동 통보</li>
+            <li>- 월 1회 이상 미통보자 점검</li>
+            <li className="text-[10px] text-slate-500">* 포털-신상변동 미통보자 조회</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    {/* Warning & Penalty */}
+    <div className="space-y-3">
+      <div className="p-4 bg-rose-50 border border-rose-200 rounded-2xl text-center">
+        <p className="text-[13px] font-black text-rose-900 leading-relaxed">
+          사회복무요원의 정확한 자원관리를 위해<br/>
+          <span className="bg-rose-600 text-white px-2 py-0.5 rounded italic">"신상변동 통보 누락"</span> 되지 않도록 유의
+        </p>
+      </div>
+      <div className="p-4 bg-slate-900 text-white rounded-2xl">
+        <div className="flex items-center gap-2 mb-2">
+          <AlertCircle size={16} className="text-rose-400" />
+          <h4 className="font-bold text-[13px]">통보지연 시 행정처분</h4>
+        </div>
+        <p className="text-[12px] text-slate-300">
+           신상변동 통보지연 시 <span className="text-white font-bold underline decoration-rose-500/50">행정처분(3개월 미만 주의, 3개월 이상 경고)</span>
+        </p>
+      </div>
+    </div>
+  </div>
+);
+
+const DutyListGuide = () => (
+  <div className="space-y-6 font-sans pb-6">
+    <div className="flex items-center gap-2 mb-4 border-l-4 border-slate-900 pl-3">
+      <h3 className="text-lg font-bold text-slate-800">사회복무요원 임무표 작성 방법</h3>
+    </div>
+
+    {/* Preparation Timing */}
+    <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+      <div className="flex items-center gap-2 mb-1">
+        <Clock size={18} className="text-slate-700" />
+        <h4 className="font-bold text-slate-800 text-[14px]">작성 시기</h4>
+      </div>
+      <ul className="text-[12px] text-slate-600 space-y-1.5 pl-5 list-disc">
+        <li>복무 시작 후 <span className="text-slate-900 font-bold">7일 이내</span> 작성</li>
+        <li>복무 중에도 <span className="text-blue-600 font-bold underline decoration-blue-200">기존 업무와 변경 시</span> 수정하여 작성</li>
+      </ul>
+    </div>
+
+    {/* Preparation Method */}
+    <div className="space-y-4">
+      <div className="flex items-center gap-2 mb-1">
+        <FileSignature size={18} className="text-blue-600" />
+        <h4 className="font-bold text-slate-800 text-[14px]">작성 방법</h4>
+      </div>
+
+      <div className="p-5 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-4">
+        <div className="space-y-2">
+          <p className="text-[13px] font-bold text-slate-800 flex items-center gap-2">
+            <span className="w-5 h-5 bg-slate-900 text-white rounded-full flex items-center justify-center text-[10px]">①</span>
+            임무를 구체화 하여 상세 기입
+          </p>
+          <div className="bg-blue-50 p-3 rounded-xl border border-blue-100 space-y-2">
+            <p className="text-[11px] font-bold text-blue-700">예시)</p>
+            <ul className="text-[11px] text-blue-800 space-y-1 leading-relaxed">
+              <li>• 주요 복무 장소에서 해야 할 업무 등 구체적으로 나열</li>
+              <li>• 환경 정비 등 공통(일상) 임무 수행 명시</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="p-3 bg-rose-50 border border-rose-100 rounded-xl space-y-2">
+          <p className="text-[11px] font-bold text-rose-700 flex items-center gap-1.5">
+            <AlertCircle size={12} /> 잘못된 작성 예
+          </p>
+          <ul className="text-[11px] text-rose-800 space-y-1.5 leading-relaxed">
+            <li>
+              <span className="font-bold">- 서식의 내용 변경 없이 서명만 받는 경우</span>
+              <p className="text-[10px] text-rose-500 mt-0.5">* 사회복무요원 소집업무규정 별표 1의 복무분야별 사회복무요원 주임무, 공통임무에 한정함</p>
+            </li>
+            <li>
+              <span className="font-bold">- 행정지원, 복지시설 업무 보조 등 복무분야만 명시해서 기입</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="pt-2">
+          <p className="text-[13px] font-bold text-slate-800 flex items-start gap-2">
+            <span className="w-5 h-5 bg-slate-900 text-white rounded-full flex items-center justify-center text-[10px] shrink-0">②</span>
+            <span>특이사항(개인정보 취급, 민원 발생 분야 등)에 해당하는 업무 부여시 <span className="text-blue-600 underline">"특이사항"</span> 란에 반드시 체크 후 아래에 상세내용 작성</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Data Management */}
+    <div className="p-4 bg-slate-900 text-white rounded-2xl space-y-3 shadow-lg">
+      <div className="flex items-center gap-2">
+        <ShieldCheck size={18} className="text-emerald-400" />
+        <h4 className="font-bold text-[14px]">자료 관리</h4>
+      </div>
+      <p className="text-[12px] text-slate-300 leading-relaxed">
+        근무지의 장, 사회복무요원 <span className="text-white font-bold underline decoration-emerald-400/50">서명 후 사회복무포털 등록</span> 및 원본 보관
+      </p>
+    </div>
+
+    {/* Footer message */}
+    <div className="text-center py-4 bg-blue-50/50 rounded-2xl border border-dashed border-blue-200">
+      <p className="text-[13px] font-black text-blue-900 leading-relaxed">
+        임무 범위에 대한 <span className="bg-blue-600 text-white px-1.5 py-0.5 rounded italic">"명확화"</span>로<br/>
+        사회복무요원과의 불필요한 갈등 예방
+      </p>
+    </div>
+  </div>
+);
+
 const Checklist: React.FC = () => {
   const [items, setItems] = useState([
     { 
@@ -446,7 +649,9 @@ const Checklist: React.FC = () => {
       text: '사회복무요원 임무표 작성 (별지 제27호)', 
       done: false, 
       priorities: ['High'], 
-      description: '주임무 및 공통임무 명시, 복무기관 배치 후 7일 이내 복무포털 등록 및 본인 확인 필수' 
+      description: '주임무 및 공통임무 명시, 복무기관 배치 후 7일 이내 복무포털 등록 및 본인 확인 필수',
+      hasGuide: true,
+      guideType: 'duty'
     },
     { 
       id: 3, 
@@ -494,9 +699,18 @@ const Checklist: React.FC = () => {
       priorities: ['Medium'], 
       description: '내용은 업무 및 심리 상태 기록, 신상명세서의 질병정보 등을 참고하여 업무 적합성 면담 실시(등록 : 사회복무포털 -> 복무자정보 -> 관찰/면담기록 ) * 사회복무요원 소집시부터 분기단위 작성(필요시 수시 작성)' 
     },
+    { 
+      id: 11, 
+      text: '신상변동 통보', 
+      done: false, 
+      priorities: ['Critical'], 
+      description: '복무이탈, 의무위반 경고, 연가/병가 초과 등 신상변동 발생 시 7일 이내 포털 통보 필수',
+      hasGuide: true,
+      guideType: 'status'
+    },
   ]);
 
-  const [activeGuide, setActiveGuide] = useState<null | 'daily' | 'arrival' | 'sick'>(null);
+  const [activeGuide, setActiveGuide] = useState<null | 'daily' | 'arrival' | 'sick' | 'duty' | 'status'>(null);
 
   useEffect(() => {
     const handlePopState = (event: PopStateEvent) => {
@@ -508,7 +722,7 @@ const Checklist: React.FC = () => {
     return () => window.removeEventListener('popstate', handlePopState);
   }, [activeGuide]);
 
-  const openGuide = (type: 'daily' | 'arrival' | 'sick') => {
+  const openGuide = (type: 'daily' | 'arrival' | 'sick' | 'duty' | 'status') => {
     window.history.pushState({ modal: true }, "");
     setActiveGuide(type);
   };
@@ -598,6 +812,7 @@ const Checklist: React.FC = () => {
                       <Eye size={12} /> {
                         item.guideType === 'arrival' ? '사회복무요원 출근시 가이드라인 보기' : 
                         item.guideType === 'sick' ? '검토 가이드 보기' : 
+                        item.guideType === 'status' ? '통보 가이드 보기' :
                         '작성 가이드 보기'
                       }
                     </button>
@@ -635,6 +850,8 @@ const Checklist: React.FC = () => {
                     <p className="text-[10px] text-slate-400">
                       {activeGuide === 'arrival' ? '사회복무요원 복무관리체계' : 
                        activeGuide === 'sick' ? '병가 증빙서류 및 규정 가이드' : 
+                       activeGuide === 'duty' ? '사회복무요원 임무표 작성 방법' :
+                       activeGuide === 'status' ? '신상변동 통보 가이드' :
                        '일일복무상황부 및 근무상황 관리'}
                     </p>
                   </div>
@@ -650,6 +867,8 @@ const Checklist: React.FC = () => {
               <div className="flex-1 overflow-y-auto p-4 custom-scrollbar">
                 {activeGuide === 'arrival' ? <ArrivalGuideline /> : 
                  activeGuide === 'sick' ? <SickLeaveGuide /> : 
+                 activeGuide === 'duty' ? <DutyListGuide /> :
+                 activeGuide === 'status' ? <StatusChangeGuide /> :
                  <DailyReportGuide />}
                 
                 {activeGuide === 'daily' && (
