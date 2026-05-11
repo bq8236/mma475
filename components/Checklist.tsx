@@ -625,7 +625,7 @@ const Checklist: React.FC = () => {
       id: 10, 
       text: '사회복무요원 복무관리체계 확인', 
       done: false, 
-      priorities: ['High'], 
+      priorities: ['Critical'], 
       description: '사회복무요원 출근시 가이드라인(신상명세서, 임무표, 교육 등) 단계별 확인',
       hasGuide: true,
       guideType: 'arrival'
@@ -648,7 +648,7 @@ const Checklist: React.FC = () => {
       id: 2, 
       text: '사회복무요원 임무표 작성 (별지 제27호)', 
       done: false, 
-      priorities: ['High'], 
+      priorities: ['Critical'], 
       description: '주임무 및 공통임무 명시, 복무기관 배치 후 7일 이내 복무포털 등록 및 본인 확인 필수',
       hasGuide: true,
       guideType: 'duty'
@@ -792,7 +792,7 @@ const Checklist: React.FC = () => {
                         p === 'Critical' ? 'bg-red-100 text-red-600' :
                         p === 'High' ? 'bg-orange-100 text-orange-600' : 'bg-blue-100 text-blue-600'
                       }`}>
-                        {p === 'Critical' ? '경고' : p === 'High' ? '주의' : '시정'}
+                        {p === 'Critical' ? 'CRITICAL' : p === 'High' ? 'HIGH' : 'MEDIUM'}
                       </span>
                     ))}
                   </div>
